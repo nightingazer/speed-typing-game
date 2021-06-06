@@ -5,17 +5,17 @@ function App() {
 	const timer = 5
 	const [text, setText] = useState("")
 	const [timeRemaining, setTimeRemaining] = useState(timer)
-	const [isStarted, setIsStarted] = useState(false)
+	const [isTimeRunning, setIsTimeRunning] = useState(false)
 
 	useEffect(() => {
 		setTimeout(() => {
-			if (timeRemaining > 0 && isStarted) {
+			if (timeRemaining > 0 && isTimeRunning) {
 				setTimeRemaining((time) => time - 1)
 			} else {
-				setIsStarted(false)
+				setIsTimeRunning(false)
 			}
 		}, 1000)
-	}, [timeRemaining, isStarted])
+	}, [timeRemaining, isTimeRunning])
 
 	function handleChange(e) {
 		const { value } = e.target
@@ -23,7 +23,7 @@ function App() {
 	}
 
 	function startGame() {
-		setIsStarted(true)
+		setIsTimeRunning(true)
 		setTimeRemaining(timer)
 	}
 
