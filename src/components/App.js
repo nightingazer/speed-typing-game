@@ -28,6 +28,7 @@ function App() {
 	function startGame() {
 		setIsTimeRunning(true)
 		setTimeRemaining(timer)
+		setText("")
 	}
 
 	function countWords() {
