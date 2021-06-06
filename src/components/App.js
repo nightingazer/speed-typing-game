@@ -38,7 +38,7 @@ function App() {
 			<textarea value={text} onChange={handleChange} />
 			<h4>Time remaining: {timeRemaining}</h4>
 			<button onClick={startGame}>Start</button>
-			<h1> X Words</h1>
+			<h1>Word count: ???</h1>
 		</div>
 	)
 }
