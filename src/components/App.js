@@ -14,8 +14,7 @@ function App() {
 			if (timeRemaining > 0 && isTimeRunning) {
 				setTimeRemaining((time) => time - 1)
 			} else {
-				setIsTimeRunning(false)
-				setWordCount(countWords())
+				endGame()
 			}
 		}, 1000)
 	}, [timeRemaining, isTimeRunning])
@@ -29,6 +28,12 @@ function App() {
 		setIsTimeRunning(true)
 		setTimeRemaining(timer)
 		setText("")
+		setWordCount(0)
+	}
+
+	function endGame() {
+		setIsTimeRunning(false)
+		setWordCount(countWords())
 	}
 
 	function countWords() {
