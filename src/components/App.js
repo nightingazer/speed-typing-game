@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react"
 import "../styles/App.scss"
 
 function App() {
-	const timer = 5
+	const timer = 3
+
 	const [text, setText] = useState("")
 	const [timeRemaining, setTimeRemaining] = useState(timer)
 	const [isTimeRunning, setIsTimeRunning] = useState(false)
+	const [wordCount, setWordCount] = useState(0)
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -13,6 +15,7 @@ function App() {
 				setTimeRemaining((time) => time - 1)
 			} else {
 				setIsTimeRunning(false)
+				setWordCount(countWords())
 			}
 		}, 1000)
 	}, [timeRemaining, isTimeRunning])
@@ -28,8 +31,8 @@ function App() {
 	}
 
 	function countWords() {
-		const wordCount = text.split(" ").filter((word) => word.trim() !== "").length
-		console.log(wordCount)
+		const numWords = text.split(" ").filter((word) => word.trim() !== "").length
+		return numWords
 	}
 
 	return (
@@ -38,7 +41,7 @@ function App() {
 			<textarea value={text} onChange={handleChange} />
 			<h4>Time remaining: {timeRemaining}</h4>
 			<button onClick={startGame}>Start</button>
-			<h1>Word count: ???</h1>
+			<h1>Word count: {wordCount}</h1>
 		</div>
 	)
 }
