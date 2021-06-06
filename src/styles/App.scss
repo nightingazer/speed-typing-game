@@ -20,10 +20,12 @@ button {
 	display: block;
 	margin: 0 auto;
 	border: none;
-	background: #a80020;
 	background: #00b800;
 	padding: 10px 20px;
 	text-transform: uppercase;
+	&:disabled {
+		cursor: not-allowed;
+	}
 }
 
 h1 {
@@ -40,4 +42,7 @@ textarea {
 	height: 200px;
 	background: #00b800;
 	padding: 10px;
+	&:disabled {
+		background-color: #a5a2a2;
+	}
 }
